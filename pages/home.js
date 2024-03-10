@@ -17,17 +17,13 @@ function Home() {
           </nav>
         </div>
         <div className="d-flex align-items-center gap-2">
-          <btn class="btn btn-success">+ </btn>
-          <btn class="btn btn-danger">+</btn>
-          <div>
-            <div>Usuário</div>
-          </div>
+          <btn class="btn btn-success">+ Entrada</btn>
+          <btn class="btn btn-danger">+ Saída</btn>
         </div>
       </header>
       <main className="py-2 px-4 bg-light d-flex gap-2 flex-grow-1">
-        <aside className="text-dark bg-success-subtle p-2 rounded">Aside</aside>
         <div className="text-dark bg-success flex-grow-1 p-2 rounded d-flex flex-column">
-          <div className="d-flex gap-2">
+          <div className="d-flex gap-2 flex-column flex-md-row">
             <Card
               image={<i class="bi bi-currency-dollar fs-2 p-1"></i>}
               desc="Saldo"
