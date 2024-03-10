@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+.form {
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.small-img {
+  width: 50px;
+}
