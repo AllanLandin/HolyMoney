@@ -17,26 +17,28 @@ function Home() {
           </nav>
         </div>
         <div className="d-flex align-items-center gap-2">
-          <btn class="btn btn-success">+ Entrada</btn>
-          <btn class="btn btn-danger">+ Saída</btn>
+          <btn className="btn btn-success">+ Entrada</btn>
+          <btn className="btn btn-danger">+ Saída</btn>
         </div>
       </header>
       <main className="py-2 px-4 bg-light d-flex gap-2 flex-grow-1">
         <div className="text-dark bg-success flex-grow-1 p-2 rounded d-flex flex-column">
           <div className="d-flex gap-2 flex-column flex-md-row">
             <Card
-              image={<i class="bi bi-currency-dollar fs-2 p-1"></i>}
+              image={<i className="bi bi-currency-dollar fs-2 p-1"></i>}
               desc="Saldo"
               balance={123}
             ></Card>
             <Card
-              image={<i class="bi bi-graph-up-arrow fs-2 p-1 text-success"></i>}
+              image={
+                <i className="bi bi-graph-up-arrow fs-2 p-1 text-success"></i>
+              }
               desc="Ganhos"
               balance={123}
             ></Card>
             <Card
               image={
-                <i class="bi bi-graph-down-arrow fs-2 p-1 text-danger"></i>
+                <i className="bi bi-graph-down-arrow fs-2 p-1 text-danger"></i>
               }
               desc="Despesas"
               balance={123}
