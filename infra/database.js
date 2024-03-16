@@ -8,9 +8,9 @@ const pool = mysql.createPool({
   port: process.env.MYSQL_PORT,
 });
 
-async function query(queryObj) {
+async function query(queryObj, ...rest) {
   try {
-    const [result] = await pool.query(queryObj);
+    const [result] = await pool.query(queryObj, ...rest);
     return result;
   } catch (error) {
     console.debug("Query Function", error);

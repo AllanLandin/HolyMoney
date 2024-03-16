@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Register() {
   const [authData, setAuthData] = useState({
+    username: "",
     email: "",
     password: "",
   });
@@ -11,6 +12,7 @@ function Register() {
     const response = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify({
+        username: authData.username,
         email: authData.email,
         password: authData.password,
       }),
@@ -23,6 +25,19 @@ function Register() {
       <form className="d-flex flex-column bg-dark text-white rounded-4 gap-3 w-50 form position-absolute top-50 start-50 translate-middle p-4">
         <div className="text-center text-uppercase border-bottom py-2">
           Cadastrar-se
+        </div>
+        <div className="d-flex flex-column gap-2">
+          <label to="username_register">Nome</label>
+          <input
+            type="text"
+            id="username_register"
+            placeholder="Username"
+            className="rounded-1 border border-0 p-1"
+            value={authData.username}
+            onChange={(e) => {
+              setAuthData({ ...authData, username: e.target.value });
+            }}
+          ></input>
         </div>
         <div className="d-flex flex-column gap-2">
           <label to="email_register">Email</label>
