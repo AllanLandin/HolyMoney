@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 function Login() {
   const [authData, setAuthData] = useState({
@@ -13,7 +14,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.debug("AuthData", authData);
     const response = await signIn("credentials", {
       email: authData.email,
       password: authData.password,
@@ -22,7 +22,13 @@ function Login() {
     console.log(response);
     if (!response?.error) {
       router.push("/home");
-      router.refresh();
+      toast.success("Seja bem vindo!");
+    }
+    if (response?.error) {
+      switch (response.error) {
+        case "CredentialsSignin":
+          toast.error("Email e/ou senha incorreto(s)!");
+      }
     }
   };
 

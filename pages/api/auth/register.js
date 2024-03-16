@@ -15,7 +15,7 @@ async function POST(req, res) {
 
       if (result.error) {
         console.error(validation.errorMessage);
-        return res.json(validation.errorMessage);
+        return res.status(400).json(validation.errorMessage);
       }
     }
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Card from "@/components/card";
-import { signOut } from "next-auth/react";
+import LogOutButton from "@/components/logoutBtn";
 
 function Home() {
   return (
@@ -17,18 +17,12 @@ function Home() {
             </Link>
           </nav>
         </div>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center gap-2">
           <div className="d-flex gap-2 align-items-center">
             <btn className="btn btn-success">+ Entrada</btn>
             <btn className="btn btn-danger">+ Saída</btn>
           </div>
-          <span
-            onClick={() => {
-              signOut();
-            }}
-          >
-            Sair
-          </span>
+          <LogOutButton />
         </div>
       </header>
       <main className="py-2 px-4 bg-light d-flex gap-2 flex-grow-1">

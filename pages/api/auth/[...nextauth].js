@@ -23,17 +23,20 @@ const authOptions = {
             [email]
           );
           const passwordMatches = user[0]
-            ? bcrypt.compare(password, user[0].password)
+            ? await bcrypt.compare(password, user[0].password)
             : false;
 
           if (passwordMatches) {
-            console.log("password matches");
             return { username: user.username, email: user.email };
           } else {
             return null;
           }
         } catch (error) {
-          console.debug("Error treated", error);
+          console.debug(
+            "An error ocurred trying to fetch the data from database:",
+            error
+          );
+          throw error;
         }
       },
     }),

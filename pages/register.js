@@ -17,7 +17,6 @@ function Register() {
         password: authData.password,
       }),
     });
-    console.log({ response });
   };
 
   return (
