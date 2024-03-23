@@ -1,19 +1,20 @@
-import mysql from "mysql2/promise";
+import { Pool } from "pg";
 
-const pool = mysql.createPool({
-  host: process.env.MYSQL_HOST,
-  user: process.env.MYSQL_USER,
-  database: process.env.MYSQL_DATABASE,
-  password: process.env.MYSQL_PASSWORD,
-  port: process.env.MYSQL_PORT,
+const pool = new Pool({
+  host: process.env.POSTGRES_HOST,
+  user: process.env.POSTGRES_USER,
+  database: process.env.POSTGRES_DB,
+  password: process.env.POSTGRES_PASSWORD,
+  port: process.env.POSTGRES_PORT,
+  ssl: process.env.NODE_ENV === "development" ? false : true,
 });
 
-async function query(queryObj) {
+async function query(queryObj, ...rest) {
   try {
-    const [result] = await pool.query(queryObj);
+    const result = await pool.query(queryObj, ...rest);
     return result;
   } catch (error) {
-    console.debug("Query Function", error);
+    console.debug("Query Function Error:", error);
   }
 }
 
