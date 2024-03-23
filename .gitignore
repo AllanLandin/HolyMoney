@@ -37,3 +37,5 @@ next-env.d.ts
 
 # Environment Variables (not required)
 .env.development
+
+/infra/data

@@ -1,6 +1,6 @@
 "use client";
 
-import database from "@/infra/database";
+import database from "infra/database";
 import bcrypt from "bcrypt";
 
 async function POST(req, res) {
@@ -21,10 +21,11 @@ async function POST(req, res) {
 
     const hashedPassword = await bcrypt.hashSync(password, 12);
 
-    await database.query(
-      "INSERT INTO user (username, email, password) VALUES (?, ?, ?)",
-      [username, email, hashedPassword]
-    );
+    await database.query({
+      text: "INSERT INTO users (username, email, password) VALUES ($1::text, $2::text, $3::text)",
+      values: [username, email, hashedPassword],
+      rowMode: "array",
+    });
     return res.json({ message: "success" });
   } catch (error) {
     console.debug("POST - register.js: ", error);
@@ -62,11 +63,11 @@ class Validations {
   }
   async isEmailAvaible(email) {
     const result = await database.query(
-      "SELECT email from user WHERE email = ?",
-      email
+      "SELECT email from users WHERE email = $1::text",
+      [email]
     );
-
-    const isEmailInUse = result.length > 0;
+    console.log("Result: " + { result });
+    const isEmailInUse = result.rowCount > 0;
 
     return isEmailInUse
       ? { error: "Email is already registered" }

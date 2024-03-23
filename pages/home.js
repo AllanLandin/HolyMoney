@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Card from "@/components/card";
-import LogOutButton from "@/components/logoutBtn";
+import Card from "components/card";
+import LogOutButton from "components/logoutBtn";
 
 function Home() {
   return (

@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import database from "@/infra/database";
+import database from "infra/database";
 import bcrypt from "bcrypt";
 
 const authOptions = {
@@ -19,11 +19,11 @@ const authOptions = {
         try {
           const { email, password } = credentials;
           const user = await database.query(
-            "SELECT * FROM user WHERE email=?",
+            "SELECT * FROM users WHERE email = $1",
             [email]
           );
-          const passwordMatches = user[0]
-            ? await bcrypt.compare(password, user[0].password)
+          const passwordMatches = user.rows[0]
+            ? await bcrypt.compare(password, user.rows[0].password)
             : false;
 
           if (passwordMatches) {
