@@ -1,4 +1,6 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 function Register() {
   const [authData, setAuthData] = useState({
@@ -6,6 +8,7 @@ function Register() {
     email: "",
     password: "",
   });
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +20,15 @@ function Register() {
         password: authData.password,
       }),
     });
+    const responseData = await response.json();
+
+    if (responseData?.error) {
+      toast.error(responseData.error);
+    }
+    if (!responseData?.error) {
+      router.push("/login");
+      toast.success(responseData.message);
+    }
   };
 
   return (

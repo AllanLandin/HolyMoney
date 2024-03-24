@@ -19,7 +19,7 @@ const authOptions = {
         try {
           const { email, password } = credentials;
           const user = await database.query(
-            "SELECT * FROM users WHERE email = $1",
+            "SELECT * FROM users WHERE email = $1::text",
             [email]
           );
           const passwordMatches = user.rows[0]

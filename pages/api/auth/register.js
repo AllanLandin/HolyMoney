@@ -14,8 +14,7 @@ async function POST(req, res) {
       const result = await validation.validator(validation.data);
 
       if (result.error) {
-        console.error(validation.errorMessage);
-        return res.status(400).json(validation.errorMessage);
+        return res.json({ error: validation.errorMessage });
       }
     }
 
@@ -26,7 +25,7 @@ async function POST(req, res) {
       values: [username, email, hashedPassword],
       rowMode: "array",
     });
-    return res.json({ message: "success" });
+    return res.json({ message: "Cadastro realizado com sucesso!" });
   } catch (error) {
     console.debug("POST - register.js: ", error);
   }
@@ -66,7 +65,6 @@ class Validations {
       "SELECT email from users WHERE email = $1::text",
       [email]
     );
-    console.log("Result: " + { result });
     const isEmailInUse = result.rowCount > 0;
 
     return isEmailInUse

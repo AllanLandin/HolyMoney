@@ -19,7 +19,6 @@ function Login() {
       password: authData.password,
       redirect: false,
     });
-    console.log(response);
     if (!response?.error) {
       router.push("/home");
       toast.success("Seja bem vindo!");
