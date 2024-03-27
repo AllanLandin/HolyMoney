@@ -7,15 +7,10 @@
   box-sizing: border-box;
 }
 
-.form {
-  max-width: 500px;
-  min-width: 300px;
-}
-
 .small-img {
   width: 50px;
 }
 
-.btn-1 {
-  width: 1fr;
+.btn-animated:active {
+  transform: translateY(4px);
 }

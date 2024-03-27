@@ -1,6 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 function Register() {
   const [authData, setAuthData] = useState({
@@ -32,18 +33,28 @@ function Register() {
   };
 
   return (
-    <div>
-      <form className="d-flex flex-column bg-dark text-white rounded-4 gap-3 w-50 form position-absolute top-50 start-50 translate-middle p-4">
-        <div className="text-center text-uppercase border-bottom py-2">
-          Cadastrar-se
+    <div className="d-md-flex">
+      <div className="d-none d-md-flex flex-grow-1 vh-100 bg-dark">
+        <img
+          src="background-register.jpg"
+          className="h-100 object-fit-cover w-100"
+        ></img>
+        <div className="position-absolute bottom-50 px-2">
+          <p className="text-white fs-1">Novo aqui no FinanceC?</p>
+          <p className="text-white fst-italic">
+            Cadastre-se e comece a utiizar o app!
+          </p>
         </div>
+      </div>
+      <form className="d-flex vh-100 flex-column justify-content-around mx-md-5 p-3 gap-3">
+        <div className="fs-2">Cadastrar-se</div>
         <div className="d-flex flex-column gap-2">
-          <label to="username_register">Nome</label>
+          <label to="username_register">Username</label>
           <input
             type="text"
             id="username_register"
-            placeholder="Username"
-            className="rounded-1 border border-0 p-1"
+            placeholder="Escreva aqui o seu username"
+            className="border-bottom border-0 border-2 border-dark p-1"
             value={authData.username}
             onChange={(e) => {
               setAuthData({ ...authData, username: e.target.value });
@@ -55,8 +66,8 @@ function Register() {
           <input
             type="email"
             id="email_register"
-            placeholder="Email"
-            className="rounded-1 border border-0 p-1"
+            placeholder="Escreva aqui o seu email"
+            className="border-bottom border-0 border-2 border-dark p-1"
             value={authData.email}
             onChange={(e) => {
               setAuthData({ ...authData, email: e.target.value });
@@ -68,8 +79,8 @@ function Register() {
           <input
             type="password"
             id="password_register"
-            placeholder="Senha"
-            className="rounded-1 border border-0 p-1"
+            placeholder="Escreva aqui a sua senha"
+            className="border-bottom border-0 border-2 border-dark p-1"
             value={authData.password}
             onChange={(e) => {
               setAuthData({ ...authData, password: e.target.value });
@@ -79,10 +90,19 @@ function Register() {
         <button
           onClick={handleSubmit}
           type="submit"
-          className="btn btn-success rounded text-uppercase mt-3"
+          className="btn btn-dark rounded text-uppercase mt-3 btn-animated"
         >
           Cadastrar
         </button>
+        <div>
+          <small>
+            Já tem uma conta?{" "}
+            <Link href="/login" className="text-decoration-none text-warning">
+              Clique aqui
+            </Link>{" "}
+            para fazer login.
+          </small>
+        </div>
       </form>
     </div>
   );

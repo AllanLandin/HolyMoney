@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 function Login() {
   const [authData, setAuthData] = useState({
@@ -32,19 +33,17 @@ function Login() {
   };
 
   return (
-    <div>
-      <form className="d-flex flex-column bg-dark text-white rounded-4 gap-3 w-50 form position-absolute top-50 start-50 translate-middle p-4">
-        <div className="text-center text-uppercase border-bottom py-2">
-          Login
-        </div>
+    <div className="d-md-flex">
+      <form className="d-flex flex-column p-3 justify-content-around vh-100 mx-md-5">
+        <div className="fs-2">Login</div>
         <div className="d-flex flex-column gap-2">
           <label to="email_login">Email</label>
           <input
             name="email"
             type="email"
             id="email_login"
-            placeholder="Email"
-            className="rounded-1 border border-0 p-1"
+            placeholder="Escreva aqui o seu email"
+            className="border-bottom border-0 border-2 border-dark p-1"
             value={authData.email}
             onChange={(e) => {
               setAuthData({ ...authData, email: e.target.value });
@@ -57,8 +56,8 @@ function Login() {
             name="password"
             type="password"
             id="password_login"
-            placeholder="Senha"
-            className="rounded-1 border border-0 p-1"
+            placeholder="Escreva aqui a sua senha"
+            className="border-bottom border-0 border-2 border-dark p-1"
             value={authData.password}
             onChange={(e) => {
               setAuthData({ ...authData, password: e.target.value });
@@ -68,11 +67,37 @@ function Login() {
         <button
           onClick={handleSubmit}
           type="submit"
-          className="btn btn-success rounded text-uppercase mt-3"
+          className="btn btn-dark rounded text-uppercase mt-3 btn-animated"
         >
-          Login
+          Entrar
         </button>
+        <div>
+          <small>
+            Não tem uma conta ainda?{" "}
+            <Link
+              href="/register"
+              className="text-decoration-none text-warning"
+            >
+              Clique aqui
+            </Link>{" "}
+            para registrar-se.
+          </small>
+        </div>
       </form>
+      <div className="d-none d-md-flex flex-grow-1 vh-100">
+        <img
+          src="background-login.jpg"
+          className="h-100 w-100 object-fit-cover"
+        ></img>
+        <div className="position-absolute bottom-50 px-5">
+          <p className="text-white fs-1">
+            Novamente no <span className="text-darker fw-bold">FinanceC</span>?
+          </p>
+          <p className="fst-italic text-white">
+            Faça o login para entrar no aplicativo.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
