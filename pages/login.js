@@ -71,7 +71,7 @@ function Login() {
         >
           Entrar
         </button>
-        <div>
+        <div className="text-center">
           <small>
             Não tem uma conta ainda?{" "}
             <Link

@@ -11,6 +11,11 @@
   width: 50px;
 }
 
+.background-image-darker {
+  background-image: url("/background-index.jpg");
+  background-size: cover;
+}
+
 .btn-animated:active {
   transform: translateY(4px);
 }

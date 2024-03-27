@@ -94,7 +94,7 @@ function Register() {
         >
           Cadastrar
         </button>
-        <div>
+        <div className="text-center">
           <small>
             Já tem uma conta?{" "}
             <Link href="/login" className="text-decoration-none text-warning">
