@@ -19,3 +19,7 @@
 .btn-animated:active {
   transform: translateY(4px);
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

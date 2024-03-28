@@ -77,7 +77,7 @@ class Validations {
       : { error: "Username is null" };
   }
   validatePassword(password) {
-    const passwordIsValid = password.toString().length > 10;
+    const passwordIsValid = password.toString().length > 5;
     return passwordIsValid
       ? { message: "Password ok!" }
       : { error: "Password invalid" };

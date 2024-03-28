@@ -3,14 +3,13 @@ import { signOut } from "next-auth/react";
 function LogOutButton() {
   return (
     <span
-      className="btn d-flex align-items-center"
+      className=""
       onClick={() => {
         signOut();
       }}
       href="/login"
     >
-      <i className="bi bi-indent fs-4"></i>
-      Sair
+      <i class="bi bi-box-arrow-right fs-1 cursor-pointer"></i>
     </span>
   );
 }
