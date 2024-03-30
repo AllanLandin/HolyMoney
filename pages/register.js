@@ -40,7 +40,9 @@ function Register() {
           className="h-100 object-fit-cover w-100"
         ></img>
         <div className="position-absolute bottom-50 px-2">
-          <p className="text-white fs-1">Novo aqui no FinanceC?</p>
+          <p className="text-white fs-1">
+            Novo aqui no <span className="fw-bold">HolyMoney</span>?
+          </p>
           <p className="text-white fst-italic">
             Cadastre-se e comece a utiizar o app!
           </p>

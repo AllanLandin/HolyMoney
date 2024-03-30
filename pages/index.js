@@ -6,7 +6,7 @@ function Index() {
       <div className="d-flex flex-column justify-content-center h-100 align-items-center text-center gap-3">
         <h1 className="text-white fs-1">
           Seja Bem Vindo ao{" "}
-          <span className="fw-bold text-primary">FinanceC</span>!
+          <span className="fw-bold text-primary">HolyMoney</span>!
         </h1>
         <div className="d-flex gap-3">
           <Link

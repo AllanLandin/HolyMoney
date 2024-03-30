@@ -20,11 +20,11 @@ function Home() {
               <span>Entrada</span>
             </button>
             <button className="btn btn-danger btn-animated flex-grow-1 d-flex gap-2">
-              <i class="bi bi-fire"></i>
+              <i className="bi bi-fire"></i>
               <span>Saída</span>
             </button>
             <button className="btn btn-warning btn-animated flex-grow-1 d-flex gap-2">
-              <i class="bi bi-wallet2"></i>
+              <i className="bi bi-wallet2"></i>
               <span>Conta</span>
             </button>
           </div>

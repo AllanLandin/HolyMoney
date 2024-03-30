@@ -91,7 +91,7 @@ function Login() {
         ></img>
         <div className="position-absolute bottom-50 px-5">
           <p className="text-white fs-1">
-            Novamente no <span className="text-darker fw-bold">FinanceC</span>?
+            Novamente no <span className="text-darker fw-bold">HolyMoney</span>?
           </p>
           <p className="fst-italic text-white">
             Faça o login para entrar no aplicativo.

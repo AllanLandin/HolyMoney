@@ -9,7 +9,7 @@ function LogOutButton() {
       }}
       href="/login"
     >
-      <i class="bi bi-box-arrow-right fs-1 cursor-pointer"></i>
+      <i className="bi bi-box-arrow-right fs-1 cursor-pointer"></i>
     </span>
   );
 }
