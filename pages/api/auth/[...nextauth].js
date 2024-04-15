@@ -27,10 +27,9 @@ const authOptions = {
             : false;
 
           if (passwordMatches) {
-            return { username: user.username, email: user.email };
-          } else {
-            return null;
+            return { name: user.rows[0].username, email: user.rows[0].email };
           }
+          return null;
         } catch (error) {
           console.debug(
             "An error ocurred trying to fetch the data from database:",

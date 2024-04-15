@@ -1,12 +1,21 @@
 import AccountCard from "components/accountCard";
 import LogOutButton from "/components/logoutBtn";
 import Table from "components/table";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 function Home() {
+  const { data: session } = useSession();
+  if (!session) {
+    return <div>Você não está logado!</div>;
+  }
+  const { user } = session;
+  console.log(session);
+
   return (
     <div className="bg-dark px-4 py-2 text-white min-vh-100">
       <header className="d-flex align-items-center justify-content-between py-3 my-2">
-        <div className="fs-3">FinanceC</div>
+        <div className="fs-3">HolyMoney</div>
         <div>
           <LogOutButton />
         </div>
