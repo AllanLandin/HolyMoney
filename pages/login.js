@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Link from "next/link";
@@ -12,6 +12,12 @@ function Login() {
     password: "",
   });
   const router = useRouter();
+  const { data: session } = useSession();
+
+  if (session) {
+    router.push("/home");
+    toast.error("Você já está logado!");
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
