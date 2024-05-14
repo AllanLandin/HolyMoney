@@ -1,22 +1,33 @@
 import AccountCard from "components/accountCard";
 import LogOutButton from "/components/logoutBtn";
 import Table from "components/table";
-import { useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 function Home() {
-  const { data: session } = useSession();
-  if (!session) {
-    return <div>Você não está logado!</div>;
-  }
-  const { user } = session;
-  console.log(session);
+  const [userData, setUserData] = useState({ teste: "teste" });
+
+  useEffect(() => {
+    getSession().then((session) => {
+      if (session) {
+        fetch("api/getUserData", {
+          method: "POST",
+          body: JSON.stringify({ email: session.user.email }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setUserData(data);
+          });
+      }
+    });
+  }, []);
 
   return (
     <div className="bg-dark px-4 py-2 text-white min-vh-100">
       <header className="d-flex align-items-center justify-content-between py-3 my-2">
         <div className="fs-3">HolyMoney</div>
         <div className="d-flex gap-3 align-items-center">
-          <div className="fs-5">{user.name} |</div>
+          <div className="fs-5">{userData.name} |</div>
           <LogOutButton />
         </div>
       </header>

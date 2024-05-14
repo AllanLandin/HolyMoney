@@ -16,7 +16,6 @@ function Login() {
 
   if (session) {
     router.push("/home");
-    toast.error("Você já está logado!");
   }
 
   const handleSubmit = async (e) => {
