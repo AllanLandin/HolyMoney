@@ -1,4 +1,4 @@
-function Table() {
+function Table({ transactions }) {
   return (
     <table className="table table-striped table-hover text-center">
       <thead>
@@ -9,21 +9,15 @@ function Table() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">10/09/2023</th>
-          <td scope="row">R$10.200,90</td>
-          <td scope="row">Itaú</td>
-        </tr>
-        <tr>
-          <th scope="row">10/09/2023</th>
-          <td scope="row">R$10,90</td>
-          <td scope="row">Teste</td>
-        </tr>
-        <tr>
-          <th scope="row">10/09/2023</th>
-          <td scope="row">R$10.200,00</td>
-          <td scope="row">Bradesco</td>
-        </tr>
+        {transactions.map((transaction) => (
+          <tr>
+            <th scope="row">
+              {new Date(transaction.moment_transaction).toLocaleString("pt-BR")}
+            </th>
+            <td scope="row">R${transaction.value_transaction}</td>
+            <td scope="row">{transaction.id_account}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

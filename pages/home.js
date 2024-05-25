@@ -5,8 +5,14 @@ import { getSession, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
 function Home() {
-  const [userData, setUserData] = useState({ teste: "teste" });
+  // Utiliza "getSession" ao invés de "useSession" por que o último carrega a página 2 vezes e o primeiro resultado é sempre undefined.
 
+  const [userData, setUserData] = useState({
+    username: "",
+    accounts: [],
+    transactions: [],
+  });
+  const numbers = [1, 2, 3, 4];
   useEffect(() => {
     getSession().then((session) => {
       if (session) {
@@ -27,7 +33,7 @@ function Home() {
       <header className="d-flex align-items-center justify-content-between py-3 my-2">
         <div className="fs-3">HolyMoney</div>
         <div className="d-flex gap-3 align-items-center">
-          <div className="fs-5">{userData.name} |</div>
+          <div className="fs-5">{userData.username} |</div>
           <LogOutButton />
         </div>
       </header>
@@ -52,12 +58,14 @@ function Home() {
         <div className="py-3 px-2 shadow ">
           <p className="fs-3">Contas</p>
           <div className="d-flex w-100 p-3 gap-2 overflow-scroll bg-primary">
-            <AccountCard></AccountCard>
+            {userData["accounts"].map((account) => (
+              <AccountCard account={account}></AccountCard>
+            ))}
           </div>
         </div>
         <div className="py-3 px-2 shadow ">
           <p className="fs-3">Transações</p>
-          <Table />
+          <Table transactions={userData.transactions} />
         </div>
       </div>
     </div>
