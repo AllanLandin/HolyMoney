@@ -3,6 +3,7 @@ import LogOutButton from "/components/logoutBtn";
 import Table from "components/table";
 import { getSession, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import Modal from "../components/modal";
 
 function Home() {
   // Utiliza "getSession" ao invés de "useSession" por que o último carrega a página 2 vezes e o primeiro resultado é sempre undefined.
@@ -12,7 +13,7 @@ function Home() {
     accounts: [],
     transactions: [],
   });
-  const numbers = [1, 2, 3, 4];
+
   useEffect(() => {
     getSession().then((session) => {
       if (session) {
@@ -30,6 +31,7 @@ function Home() {
 
   return (
     <div className="bg-dark px-4 py-2 text-white min-vh-100">
+      <Modal></Modal>
       <header className="d-flex align-items-center justify-content-between py-3 my-2">
         <div className="fs-3">HolyMoney</div>
         <div className="d-flex gap-3 align-items-center">

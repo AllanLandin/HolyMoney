@@ -23,3 +23,15 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.sm-full {
+  height: 50%;
+  width: 50%;
+}
+
+@media (max-width: 800px) {
+  .sm-full {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
