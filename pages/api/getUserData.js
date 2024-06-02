@@ -1,4 +1,3 @@
-import AccountCard from "components/accountCard";
 import database from "infra/database";
 
 async function getUserData(req, res) {

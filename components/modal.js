@@ -1,11 +1,7 @@
-import { useState } from "react";
-
 function Modal(props) {
-  const [modalVisibility, setModalVisibility] = useState(true);
-
   return (
     <div>
-      {!modalVisibility ? (
+      {!props.modalVisibility ? (
         <div></div>
       ) : (
         <form
@@ -15,14 +11,14 @@ function Modal(props) {
           <div className="d-flex flex-column gap-5">
             <div
               onClick={() => {
-                setModalVisibility(false);
+                props.setModalVisibility(false);
               }}
               className="btn btn-danger align-self-end justify-content-center align-items-center"
             >
               X
             </div>
             <label htmlFor="value_input" className="text-center fs-4">
-              Digite o valor de sua {props.type}
+              Digite o valor de sua {props.typeRegister}
             </label>
             <input
               id="value_input"
@@ -35,7 +31,6 @@ function Modal(props) {
           </button>
         </form>
       )}
-      ;
     </div>
   );
 }
