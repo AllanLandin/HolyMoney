@@ -1,6 +1,5 @@
 import AccountCard from "components/accountCard";
 import LogOutButton from "/components/logoutBtn";
-import Table from "components/table";
 import { getSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Modal from "../components/modal";
