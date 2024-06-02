@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## HolyMoney
 
-## Getting Started
+HolyMoney é um aplicativo criado de fins educacionais, e foi criado com o objetivo de ser objeto de prática do processo de implementação de um fluxo de autenticação.
 
-First, run the development server:
+O projeto é bem simples e se resume em um sistema de autenticação e autorização de usuários, que utiliza next e next-auth para isso.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ele utiliza o banco de dados postgreSQL e é hospedado no host da [NEON](https://neon.tech/), assim dados como email e senha que são inseridos na aplicação, ficam salvos de forma persistente.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias utilizadas
+- React
+- Next
+- PostgresSQL
+- Jest para testes automatizados
+- Docker
+- Bootstrap para estilização
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Link do deploy
+O projeto foi lançado na Vercel para que ficasse acessível às outras pessoas. O link da aplicação é o seguinte: https://holy-money-seven.vercel.app/.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Responsividade
+O projeto também é responsivo:
 
-To learn more about Next.js, take a look at the following resources:
+### Versão Desktop
+![image](https://github.com/AllanLandin/HolyMoney/assets/121881204/30a65800-f40f-4b19-816f-3a6a2ed96fcd)
+### Versão Mobile
+![image](https://github.com/AllanLandin/HolyMoney/assets/121881204/5f65d886-a4b8-43c9-bd48-2b03398ffe81)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
