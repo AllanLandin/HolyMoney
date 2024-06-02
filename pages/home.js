@@ -73,23 +73,7 @@ function Home() {
               <i className="bi bi-fire"></i>
               <span>Saída</span>
             </button>
-            <button className="btn btn-warning btn-animated flex-grow-1 d-flex gap-2">
-              <i className="bi bi-wallet2"></i>
-              <span>Conta</span>
-            </button>
           </div>
-        </div>
-        <div className="py-3 px-2 shadow ">
-          <p className="fs-3">Contas</p>
-          <div className="d-flex w-100 p-3 gap-2 overflow-scroll bg-primary">
-            {userData["accounts"].map((account) => (
-              <AccountCard account={account}></AccountCard>
-            ))}
-          </div>
-        </div>
-        <div className="py-3 px-2 shadow ">
-          <p className="fs-3">Transações</p>
-          <Table transactions={userData.transactions} />
         </div>
       </div>
     </div>

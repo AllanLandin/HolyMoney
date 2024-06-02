@@ -1,10 +1,18 @@
+import toast from "react-hot-toast";
+
 function Modal(props) {
+  const emitMessage = (e) => {
+    e.preventDefault();
+    toast.success("Registrado!");
+  };
+
   return (
     <div>
       {!props.modalVisibility ? (
         <div></div>
       ) : (
         <form
+          onSubmit={emitMessage}
           id="modal-form"
           className="position-fixed bg-white text-dark d-flex flex-column justify-content-between top-50 start-50 translate-middle sm-full p-4 rounded"
         >
@@ -26,7 +34,7 @@ function Modal(props) {
               type="currency"
             ></input>
           </div>
-          <button className="btn btn-success btn-animated fs-3">
+          <button className="btn btn-success btn-animated fs-3 text-uppercase">
             Registrar
           </button>
         </form>
